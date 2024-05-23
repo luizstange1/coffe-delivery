@@ -30,8 +30,10 @@ export function Success() {
   useEffect(() => {
     setTimeout(() => {
       window.location.href = "/";
-    }, 10000);
+    }, 15000);
   }, []);
+
+  console.log(orderSummary);
 
   return (
     <S.SuccessContainer>
