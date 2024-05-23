@@ -6,6 +6,8 @@
 - Prettier
 - Uuid
 - Phosphor-react
+- Axios
+- Styled Components
 
 ## 💻 Como iniciar
 
