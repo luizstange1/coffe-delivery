@@ -51,7 +51,7 @@ export function Home() {
           </S.QualityPhrasesContainer>
         </S.BackgroundPhrases>
 
-        <img src={backgroundCoffeImg} alt="" />
+        <img src={backgroundCoffeImg} alt="" className="backgroundCoffe__img" />
       </S.BackgroundContainer>
 
       <S.MenuTitle>Nossos cafés</S.MenuTitle>

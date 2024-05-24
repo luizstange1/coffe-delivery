@@ -2,12 +2,14 @@
 
 - Vite
 - ReactJS
+- ReactRouterDom
 - TypeScript
 - Prettier
 - Uuid
 - Phosphor-react
 - Axios
 - Styled Components
+- MUI Material
 
 ## 💻 Como iniciar
 

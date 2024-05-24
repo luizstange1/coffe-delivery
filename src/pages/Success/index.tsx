@@ -3,6 +3,7 @@ import deliveryLogo from "../../assets/delivery-img.svg";
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export function Success() {
   const {
@@ -14,6 +15,7 @@ export function Success() {
   } = useContext(CartContext);
 
   const { formOfPayment, infoCep, residenceNumber } = orderSummary;
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCartProducts([]);
@@ -29,11 +31,9 @@ export function Success() {
 
   useEffect(() => {
     setTimeout(() => {
-      window.location.href = "/";
+      navigate("/");
     }, 15000);
   }, []);
-
-  console.log(orderSummary);
 
   return (
     <S.SuccessContainer>

@@ -7,6 +7,28 @@ export const MenuContainer = styled.div`
   grid-template-rows: repeat(4, 1fr);
   row-gap: 4.25rem;
   position: relative;
+
+  @media (max-width: 1600px) {
+    gap: 4rem;
+  }
+
+  @media (max-width: 1400px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 1295px) {
+    gap: 4rem 2rem;
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  @media (max-width: 865px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
 `;
 
 export const ProductContainer = styled.div`
