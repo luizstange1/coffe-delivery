@@ -11,6 +11,12 @@ export const TitleContainer = styled.div`
     color: ${(props) => props.theme["base-subtitle"]};
     font-size: 1.25rem;
   }
+
+  @media (max-width: 1160px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Title = styled.h1`
@@ -22,6 +28,11 @@ export const DeliveryInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1160px) {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
 `;
 
 export const DeliveryInfo = styled.div`

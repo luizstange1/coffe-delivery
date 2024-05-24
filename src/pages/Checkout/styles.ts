@@ -3,6 +3,19 @@ import styled from "styled-components";
 export const CheckoutContainer = styled.div`
   display: flex;
   column-gap: 12rem;
+
+  @media (max-width: 1260px) {
+    column-gap: 6rem;
+  }
+
+  @media (max-width: 1150px) {
+    column-gap: 2rem;
+  }
+
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    row-gap: 4rem;
+  }
 `;
 
 export const Subtitle = styled.h2`
@@ -77,6 +90,10 @@ export const InputWrapping = styled.div``;
 
 export const CEPInput = styled(AdressInputBasis)`
   width: 40%;
+
+  @media (max-width: 600px) {
+    width: 60%;
+  }
 `;
 
 export const StreetInput = styled(AdressInputBasis)`
@@ -90,20 +107,36 @@ export const NumberInput = styled(AdressInputBasis)`
 
 export const ComplementInput = styled(AdressInputBasis)`
   width: 27rem;
+
+  @media (max-width: 600px) {
+    width: 60%;
+  }
 `;
 
 export const NeighborhoodInput = styled(AdressInputBasis)`
   width: 40%;
   margin-right: 1rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const CityInput = styled(AdressInputBasis)`
   width: 40%;
   margin-right: 1rem;
+
+  @media (max-width: 600px) {
+    width: 60%;
+  }
 `;
 
 export const UFInput = styled(AdressInputBasis)`
   width: 14.2%;
+
+  @media (max-width: 600px) {
+    width: 30%;
+  }
 `;
 
 export const Payment = styled(BaseContainer)``;
@@ -111,6 +144,12 @@ export const Payment = styled(BaseContainer)``;
 export const ContainerPaymentMethod = styled.div`
   display: flex;
   column-gap: 0.75rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 `;
 
 export const PaymentButton = styled.button`
