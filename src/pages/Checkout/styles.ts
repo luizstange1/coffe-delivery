@@ -41,7 +41,7 @@ export const AdressAndPaymentContainer = styled.div`
 export const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.theme["base-card"]};
+  background-color: ${(props) => props.theme.base.card};
   padding: 2.5rem;
   max-width: 40rem;
   border-radius: 6px;
@@ -55,11 +55,11 @@ export const HeaderWrapping = styled.div`
   margin-bottom: 2rem;
 
   .mapPinLine__icon {
-    color: ${(props) => props.theme["yellow-dark"]};
+    color: ${(props) => props.theme.yellow.dark};
   }
 
   .dolar__icon {
-    color: ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.purple.default};
   }
 `;
 
@@ -81,8 +81,8 @@ export const InputContainer = styled.div`
 export const AdressInputBasis = styled.input`
   border-radius: 4px;
   padding: 0.75rem;
-  background-color: ${(props) => props.theme["base-input"]};
-  border: 2px solid ${(props) => props.theme["base-button"]};
+  background-color: ${(props) => props.theme.base.input};
+  border: 2px solid ${(props) => props.theme.base.button};
   margin-bottom: 1rem;
 `;
 
@@ -154,11 +154,11 @@ export const ContainerPaymentMethod = styled.div`
 
 export const PaymentButton = styled.button`
   width: 11.167rem;
-  background-color: ${(props) => props.theme["base-button"]};
+  background-color: ${(props) => props.theme.base.button};
   border-radius: 6px;
   padding: 1rem;
   text-transform: uppercase;
-  color: ${(props) => props.theme["base-text"]};
+  color: ${(props) => props.theme.base.text};
   line-height: 1.6;
   font-size: 0.75rem;
   font-weight: 500;
@@ -170,17 +170,17 @@ export const PaymentButton = styled.button`
   border: 2px solid transparent;
 
   &:hover {
-    background-color: ${(props) => props.theme["base-hover"]};
+    background-color: ${(props) => props.theme.base.hover};
   }
 
   &:focus {
-    border: 2px solid ${(props) => props.theme.purple};
+    border: 2px solid ${(props) => props.theme.purple.default};
   }
 
   .creditCard__icon,
   .bank__icon,
   .money__icon {
-    color: ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.purple.default};
   }
 `;
 
@@ -200,7 +200,7 @@ export const Products = styled.div`
   gap: 1.25rem;
   margin-bottom: 1.5rem;
   padding-bottom: 2rem;
-  border-bottom: 2px solid ${(props) => props.theme["base-button"]};
+  border-bottom: 2px solid ${(props) => props.theme.base.button};
 `;
 
 export const ProductImg = styled.img`
@@ -224,12 +224,12 @@ export const ContainerNameAndPriceProduct = styled.div`
 export const ProductName = styled.span``;
 
 export const ProductPrice = styled.span`
-  color: ${(props) => props.theme["base-title"]};
+  color: ${(props) => props.theme.base.title};
   font-weight: 600;
 `;
 
 export const SelectQuantityProducts = styled.div`
-  background-color: ${(props) => props.theme["base-button"]};
+  background-color: ${(props) => props.theme.base.button};
   width: 4.5rem;
   height: 2.375rem;
   display: flex;
@@ -242,7 +242,7 @@ export const SelectQuantityProducts = styled.div`
     width: 30%;
     display: flex;
     justify-content: center;
-    color: ${(props) => props.theme["base-title"]};
+    color: ${(props) => props.theme.base.title};
   }
 `;
 
@@ -254,14 +254,14 @@ export const ButtonWrapping = styled.div`
 export const IndreaseAndDeacreaseButtonStyles = styled.button`
   width: 35%;
   height: 100%;
-  background-color: ${(props) => props.theme["base-button"]};
-  color: ${(props) => props.theme.purple};
+  background-color: ${(props) => props.theme.base.button};
+  color: ${(props) => props.theme.purple.default};
   font-size: 1.5rem;
   border-radius: 6px;
   transition: 0.1s ease-in-out;
 
   &:hover {
-    color: ${(props) => props.theme["purple-dark"]};
+    color: ${(props) => props.theme.purple.dark};
   }
 `;
 
@@ -274,13 +274,13 @@ export const RemoveProdutButton = styled.button`
   align-items: center;
   column-gap: 0.25rem;
   text-transform: uppercase;
-  color: ${(props) => props.theme["base-text"]};
-  background-color: ${(props) => props.theme["base-button"]};
+  color: ${(props) => props.theme.base.text};
+  background-color: ${(props) => props.theme.base.button};
   border-radius: 6px;
   padding: 0.25rem 0.5rem;
 
   .trash__icon {
-    color: ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.purple.default};
   }
 `;
 
@@ -305,7 +305,7 @@ export const PriceText = styled(CartFinalValueBaseStyle)``;
 export const Values = styled(CartFinalValueBaseStyle)``;
 
 export const ConfirmOrderButton = styled.button`
-  background-color: ${(props) => props.theme.yellow};
+  background-color: ${(props) => props.theme.yellow.default};
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   border-radius: 6px;
@@ -315,7 +315,7 @@ export const ConfirmOrderButton = styled.button`
   width: 100%;
 
   &:hover {
-    background-color: ${(props) => props.theme["yellow-dark"]};
+    background-color: ${(props) => props.theme.yellow.dark};
   }
 `;
 
@@ -333,7 +333,7 @@ export const EmptyCartMessage = styled.div`
 `;
 
 export const BackToMenu = styled.button`
-  background-color: ${(props) => props.theme.yellow};
+  background-color: ${(props) => props.theme.yellow.default};
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   border-radius: 6px;

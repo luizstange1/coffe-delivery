@@ -8,7 +8,7 @@ export const SuccessContainer = styled.div`
 
 export const TitleContainer = styled.div`
   span {
-    color: ${(props) => props.theme["base-subtitle"]};
+    color: ${(props) => props.theme.base.subtitle};
     font-size: 1.25rem;
   }
 
@@ -20,7 +20,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme["yellow-dark"]};
+  color: ${(props) => props.theme.yellow.dark};
   font-weight: 800;
 `;
 
@@ -61,15 +61,15 @@ export const DeliveryInfo = styled.div`
     }
 
     .mapPin__icon {
-      background-color: ${(props) => props.theme.purple};
+      background-color: ${(props) => props.theme.purple.default};
     }
 
     .timer__icon {
-      background-color: ${(props) => props.theme.yellow};
+      background-color: ${(props) => props.theme.yellow.default};
     }
 
     .dollar__icon {
-      background-color: ${(props) => props.theme["yellow-dark"]};
+      background-color: ${(props) => props.theme.yellow.dark};
     }
   }
 `;

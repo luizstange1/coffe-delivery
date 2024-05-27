@@ -54,7 +54,7 @@ export const TitleBackgroundContainer = styled.div`
 `;
 
 export const BackgroundTitle = styled.h1`
-  color: ${(props) => props.theme["base-title"]};
+  color: ${(props) => props.theme.base.title};
   font-size: 3rem;
   font-weight: 900;
   line-height: 1.2;
@@ -81,7 +81,7 @@ export const BackgroundTitle = styled.h1`
 `;
 
 export const BackgroundSubtitle = styled.span`
-  color: ${(props) => props.theme["base-subtitle"]};
+  color: ${(props) => props.theme.base.subtitle};
   line-height: 1.3;
   font-size: 1.5rem;
 
@@ -119,7 +119,7 @@ export const QualityPhrases = styled.span`
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  color: ${(props) => props.theme["base-text"]};
+  color: ${(props) => props.theme.base.text};
 
   @media (max-width: 1275px) {
     font-size: 1rem;
@@ -139,7 +139,7 @@ export const QualityPhrases = styled.span`
 `;
 
 export const ShoppingCartLogo = styled.div`
-  background-color: ${(props) => props.theme["yellow-dark"]};
+  background-color: ${(props) => props.theme.yellow.dark};
   color: ${(props) => props.theme.white};
   border-radius: 9999px;
   padding: 0.5rem;
@@ -147,7 +147,7 @@ export const ShoppingCartLogo = styled.div`
 `;
 
 export const TimerLogo = styled.div`
-  background-color: ${(props) => props.theme.yellow};
+  background-color: ${(props) => props.theme.yellow.default};
   color: ${(props) => props.theme.white};
   border-radius: 9999px;
   padding: 0.5rem;
@@ -155,7 +155,7 @@ export const TimerLogo = styled.div`
 `;
 
 export const PackageLogo = styled.div`
-  background-color: ${(props) => props.theme["base-text"]};
+  background-color: ${(props) => props.theme.base.text};
   color: ${(props) => props.theme.white};
   border-radius: 9999px;
   padding: 0.5rem;
@@ -163,7 +163,7 @@ export const PackageLogo = styled.div`
 `;
 
 export const CoffeLogo = styled.div`
-  background-color: ${(props) => props.theme.purple};
+  background-color: ${(props) => props.theme.purple.default};
   color: ${(props) => props.theme.white};
   border-radius: 9999px;
   padding: 0.5rem;
@@ -171,7 +171,7 @@ export const CoffeLogo = styled.div`
 `;
 
 export const MenuTitle = styled.h2`
-  color: ${(props) => props.theme["base-subtitle"]};
+  color: ${(props) => props.theme.base.subtitle};
   font-size: 2rem;
   font-weight: 900;
   line-height: 1.3;

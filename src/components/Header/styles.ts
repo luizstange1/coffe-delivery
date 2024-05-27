@@ -14,8 +14,8 @@ export const ShoppingCart = styled.div`
 `;
 
 export const Location = styled.div`
-  color: ${(props) => props.theme.purple};
-  background-color: ${(props) => props.theme["purple-light"]};
+  color: ${(props) => props.theme.purple.default};
+  background-color: ${(props) => props.theme.purple.light};
   border-radius: 8px;
   padding: 0.5rem;
   height: 2.375rem;
@@ -31,8 +31,8 @@ export const Location = styled.div`
 `;
 
 export const CartLogo = styled.a`
-  background-color: ${(props) => props.theme["yellow-light"]};
-  color: ${(props) => props.theme["yellow-dark"]};
+  background-color: ${(props) => props.theme.yellow.light};
+  color: ${(props) => props.theme.yellow.dark};
   border-radius: 8px;
   height: 2.375rem;
   width: 2.375rem;
@@ -48,7 +48,7 @@ export const CartLogo = styled.a`
     right: -5px;
     top: -10px;
     border-radius: 9999px;
-    background-color: ${(props) => props.theme["yellow-dark"]};
+    background-color: ${(props) => props.theme.yellow.dark};
     color: ${(props) => props.theme.white};
     width: 1.25rem;
     height: 1.25rem;
