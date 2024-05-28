@@ -3,7 +3,7 @@ import logoCoffeDelivery from "../../assets/coffe-delivery-logo.svg";
 import { MapPin, ShoppingCart } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { CartContext } from "../../contexts";
 
 export function Header() {
   const { cartProducts } = useContext(CartContext);

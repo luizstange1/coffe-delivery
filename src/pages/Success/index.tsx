@@ -2,8 +2,8 @@ import * as S from "./styles";
 import deliveryLogo from "../../assets/delivery-img.svg";
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import { useContext, useEffect } from "react";
-import { CartContext } from "../../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../contexts";
 
 export function Success() {
   const {

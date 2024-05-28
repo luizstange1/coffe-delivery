@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Checkout, Home, Success } from "./pages";
 import { DefaultLayout } from "./layouts";
 import { useContext } from "react";
-import { CartContext } from "./contexts/CartContext";
+import { CartContext } from "./contexts";
 
 interface ProtectedRouteProps {
   component: React.ComponentType;

@@ -10,10 +10,11 @@ import {
 
 import * as S from "./styles";
 import { useContext, useEffect, useState } from "react";
-import { CartContext, InfoCep, Product } from "../../contexts/CartContext";
 import { NavLink } from "react-router-dom";
 import { Alert } from "@mui/material";
 import { cepApi } from "../../services";
+import { CartContext } from "../../contexts";
+import { InfoCep, Product } from "../../contexts/CartContext/types";
 
 export function Checkout() {
   const {
