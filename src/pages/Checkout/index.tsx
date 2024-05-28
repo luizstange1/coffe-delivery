@@ -28,6 +28,7 @@ export function Checkout() {
     residenceNumber,
     setResidenceNumber,
     setOrderSummary,
+    setOrderConfirmed,
   } = useContext(CartContext);
 
   const [cepInput, setCepInput] = useState("");
@@ -92,6 +93,8 @@ export function Checkout() {
       infoCep: infoCep,
       residenceNumber: residenceNumber,
     });
+
+    setOrderConfirmed(true);
   }
 
   return (

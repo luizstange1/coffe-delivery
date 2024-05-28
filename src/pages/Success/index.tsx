@@ -12,6 +12,7 @@ export function Success() {
     setFormOfPayment,
     setInfoCep,
     setResidenceNumber,
+    setOrderConfirmed,
   } = useContext(CartContext);
 
   const { formOfPayment, infoCep, residenceNumber } = orderSummary;
@@ -32,6 +33,7 @@ export function Success() {
   useEffect(() => {
     setTimeout(() => {
       navigate("/");
+      setOrderConfirmed(false);
     }, 15000);
   }, []);
 

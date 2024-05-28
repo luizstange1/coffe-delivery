@@ -162,6 +162,8 @@ interface CartContextType {
   setFormOfPayment: (payment: string) => void;
   orderSummary: OrderSummary;
   setOrderSummary: (summary: OrderSummary) => void;
+  orderConfirmed: boolean;
+  setOrderConfirmed: (orderConfirmed: boolean) => void;
 }
 
 export interface InfoCep {
@@ -201,6 +203,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     residenceNumber: undefined,
     formOfPayment: "",
   });
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   function addToCart(product: Product) {
     const productExistsInCart = cartProducts.find(
@@ -252,6 +255,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         setFormOfPayment,
         orderSummary,
         setOrderSummary,
+        orderConfirmed,
+        setOrderConfirmed,
       }}
     >
       {children}
