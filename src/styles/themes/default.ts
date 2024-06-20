@@ -11,6 +11,7 @@ export const defaultTheme = {
     text: "#574F4D",
     subtitle: "#403937",
     title: "#272221",
+    alternative: "#858383",
   },
 
   purple: {

@@ -271,14 +271,21 @@ export function Checkout() {
                   </span>
                 </S.Values>
               </S.WrappingFinalCartValues>
-              <NavLink
-                to="/sucesso"
-                onClick={handleCheckIfTheInformationIsCompleted}
-              >
-                <S.ConfirmOrderButton onClick={handleCreateOrderSummary}>
-                  Confirmar Pedido
-                </S.ConfirmOrderButton>
-              </NavLink>
+
+              <S.WrappingButtonsToConfirmPurchaseAndReturnToMenu>
+                <NavLink
+                  to="/sucesso"
+                  onClick={handleCheckIfTheInformationIsCompleted}
+                >
+                  <S.ConfirmOrderButton onClick={handleCreateOrderSummary}>
+                    Confirmar Pedido
+                  </S.ConfirmOrderButton>
+                </NavLink>
+
+                <NavLink to="/">
+                  <S.KeepBuying>Continuar comprando</S.KeepBuying>
+                </NavLink>
+              </S.WrappingButtonsToConfirmPurchaseAndReturnToMenu>
             </>
           )}
         </S.ContainerProducts>

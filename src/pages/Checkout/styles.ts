@@ -332,11 +332,30 @@ export const EmptyCartMessage = styled.div`
   }
 `;
 
+export const WrappingButtonsToConfirmPurchaseAndReturnToMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+`;
+
 export const BackToMenu = styled.button`
   background-color: ${(props) => props.theme.yellow.default};
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   border-radius: 6px;
   padding: 0.5rem 0.75rem;
-  margin-top: 1.5rem;
+`;
+
+export const KeepBuying = styled.button`
+  background-color: ${(props) => props.theme.base.alternative};
+  color: ${(props) => props.theme.white};
+  text-transform: uppercase;
+  border-radius: 6px;
+  width: 100%;
+  padding: 0.75rem;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;
