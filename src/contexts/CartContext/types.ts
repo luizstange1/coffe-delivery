@@ -25,7 +25,6 @@ export interface OrderSummary {
 export interface CartContextType {
   cartProducts: Product[];
   setCartProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-  productsList: Product[];
   addToCart: (product: Product) => void;
   removeToCart: (product: Product) => void;
   infoCep: InfoCep | null;
