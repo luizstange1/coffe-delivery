@@ -1,6 +1,7 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { CartContextType, InfoCep, OrderSummary, Product } from "./types";
-import { productsList } from "../../constants/productsList";
+import { GetProductsAPI } from "../../services";
+/* import { productsList } from "../../constants/productsList"; */
 
 interface CartContextProviderProps {
   children: ReactNode;
@@ -9,6 +10,7 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const [productsList, setProductsList] = useState<Product[]>([]);
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
   const [infoCep, setInfoCep] = useState<InfoCep | null>(null);
   const [residenceNumber, setResidenceNumber] = useState<number | undefined>(); //aqui eu fiz um state pro numero, porque na API nao retorna numero da casa certinho, eu preciso bloquear a finalização da compra caso o input de numero esteja vazio
@@ -20,6 +22,15 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     formOfPayment: "",
   });
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const products = await GetProductsAPI();
+      setProductsList(products);
+    }
+
+    fetchProducts();
+  }, []);
 
   function addToCart(product: Product) {
     const productExistsInCart = cartProducts.find(

@@ -1,1 +1,0 @@
-export { cepApi } from "./api";

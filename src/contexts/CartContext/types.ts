@@ -1,10 +1,10 @@
 export interface Product {
   id: string;
-  image: string;
-  tag: string[];
-  name: string;
-  details: string;
-  price: number;
+  image_path: string;
+  tag_product: [];
+  name_product: string;
+  details_product: string;
+  price_product: number;
   quantity: number;
 }
 

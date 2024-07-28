@@ -16,15 +16,15 @@ export function Menu() {
 
         return (
           <S.ProductContainer key={product.id}>
-            <S.ProductImage src={product.image} />
+            <S.ProductImage src={product.image_path} />
             <S.ProductInformationContainer>
               <S.TagWrapping>
-                {product.tag.map((tag, index) => {
+                {product.tag_product?.map((tag, index) => {
                   return <S.Tag key={index}>{tag}</S.Tag>;
                 })}
               </S.TagWrapping>
-              <S.ProductName>{product.name}</S.ProductName>
-              <S.ProductDetails>{product.details}</S.ProductDetails>
+              <S.ProductName>{product.name_product}</S.ProductName>
+              <S.ProductDetails>{product.details_product}</S.ProductDetails>
             </S.ProductInformationContainer>
 
             <S.PriceContainer>
@@ -32,7 +32,7 @@ export function Menu() {
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
-                }).format(product.price)}
+                }).format(product.price_product)}
               </S.Price>
 
               <S.ContainerAddToCart>

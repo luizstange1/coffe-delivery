@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const cepApi = axios.create({
+export const cepAPI = axios.create({
   baseURL: "https://viacep.com.br/ws/",
 });

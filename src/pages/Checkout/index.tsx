@@ -12,9 +12,9 @@ import * as S from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Alert } from "@mui/material";
-import { cepApi } from "../../services";
 import { CartContext } from "../../contexts";
 import { InfoCep, Product } from "../../contexts/CartContext/types";
+import { cepAPI } from "../../services";
 
 export function Checkout() {
   const {
@@ -36,7 +36,7 @@ export function Checkout() {
   const [showAlertModal, setShowAlertModal] = useState(false);
 
   const sumOfProductValue = cartProducts
-    .map((product) => product.quantity * Number(product.price))
+    .map((product) => product.quantity * Number(product.price_product))
     .reduce((acummulator, value) => acummulator + value, 0);
 
   const sumOfProductValuesWithDeliveryValue = sumOfProductValue + 3.5;
@@ -52,7 +52,7 @@ export function Checkout() {
   async function handleSearchCep() {
     if (cepInput.length === 8) {
       try {
-        const response = await cepApi.get<InfoCep>(`${cepInput}/json/`);
+        const response = await cepAPI.get<InfoCep>(`${cepInput}/json/`);
         setInfoCep(response.data);
       } catch (error) {
         console.log(error);
@@ -201,16 +201,16 @@ export function Checkout() {
             cartProducts.map((product) => {
               return (
                 <S.Products key={product.id}>
-                  <S.ProductImg src={product.image} />
+                  <S.ProductImg src={product.image_path} />
 
                   <S.ContainerNameAndPriceProduct>
                     <S.NameAndPriceWrapping>
-                      <S.ProductName>{product.name}</S.ProductName>
+                      <S.ProductName>{product.name_product}</S.ProductName>
                       <S.ProductPrice>
                         {Intl.NumberFormat("pt-BR", {
                           style: "currency",
                           currency: "BRL",
-                        }).format(product.price)}
+                        }).format(product.price_product)}
                       </S.ProductPrice>
                     </S.NameAndPriceWrapping>
 
