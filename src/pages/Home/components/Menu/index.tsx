@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import * as S from "./styles";
 import { ShoppingCartSimple } from "@phosphor-icons/react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../../../contexts";
 import { Product } from "../../../../contexts/CartContext/types";
 import { getProductsAPI } from "../../../../services";
+import * as S from "./styles";
 
 export function Menu() {
   const { cartProducts, addToCart, removeToCart } = useContext(CartContext);
