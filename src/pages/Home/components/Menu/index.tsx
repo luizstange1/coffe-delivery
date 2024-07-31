@@ -1,23 +1,13 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../../../contexts";
-import { Product } from "../../../../contexts/CartContext/types";
-import { getProductsAPI } from "../../../../services";
+import { useProducts } from "../../../../hooks";
 import * as S from "./styles";
 
 export function Menu() {
   const { cartProducts, addToCart, removeToCart } = useContext(CartContext);
-  const [productsList, setProductsList] = useState<Product[]>([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const products = await getProductsAPI();
-      setProductsList(products);
-    }
-
-    fetchProducts();
-  }, []);
+  const { productsList } = useProducts();
 
   return (
     <S.MenuContainer>
