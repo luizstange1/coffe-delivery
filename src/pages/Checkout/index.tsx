@@ -36,7 +36,7 @@ export function Checkout() {
   const [showAlertModal, setShowAlertModal] = useState(false);
 
   const sumOfProductValue = cartProducts
-    .map((product) => product.quantity * Number(product.price_product))
+    .map((product) => product.quantity * Number(product.price))
     .reduce((acummulator, value) => acummulator + value, 0);
 
   const sumOfProductValuesWithDeliveryValue = sumOfProductValue + 3.5;
@@ -205,12 +205,12 @@ export function Checkout() {
 
                   <S.ContainerNameAndPriceProduct>
                     <S.NameAndPriceWrapping>
-                      <S.ProductName>{product.name_product}</S.ProductName>
+                      <S.ProductName>{product.name}</S.ProductName>
                       <S.ProductPrice>
                         {Intl.NumberFormat("pt-BR", {
                           style: "currency",
                           currency: "BRL",
-                        }).format(product.price_product)}
+                        }).format(product.price)}
                       </S.ProductPrice>
                     </S.NameAndPriceWrapping>
 
