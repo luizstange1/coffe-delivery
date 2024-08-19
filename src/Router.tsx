@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Checkout, Home, Success } from "./pages";
+import { Administration, Checkout, Home, Success } from "./pages";
 import { DefaultLayout } from "./layouts";
 import { useContext } from "react";
 import { CartContext } from "./contexts";
@@ -26,6 +26,8 @@ export function Router() {
           element={<ProtectedRoute component={Success} />}
         />
       </Route>
+
+      <Route path="/adm" element={<Administration />} />
     </Routes>
   );
 }
