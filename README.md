@@ -5,7 +5,6 @@
 - ReactRouterDom
 - TypeScript
 - Prettier
-- Uuid
 - Phosphor-react
 - Axios
 - Styled Components
@@ -13,7 +12,7 @@
 
 ## 💻 Como iniciar
 
-- Para funcionar corretamente essa aplicação, é necessário realizar o download e iniciar o back-end deste projeto. Dentro do link do repositório back-end, terá todos os direcionamentos necessários para rodar o projeto. `https://github.com/luizstange1/backend-coffe-delivery`.
+- Para funcionar corretamente essa aplicação, é necessário realizar o download e iniciar o back-end deste projeto. Dentro do link do repositório back-end, terá todos os direcionamentos necessários para rodar o projeto. `https://github.com/luizstange1/coffe-delivery-api`.
 
 - Para realizar o download e acessar os arquivos do projeto front-end, rode o comando `git clone https://github.com/luizstange1/coffe-delivery.git`.
 

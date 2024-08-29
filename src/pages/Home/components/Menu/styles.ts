@@ -32,7 +32,7 @@ export const MenuContainer = styled.div`
 `;
 
 export const ProductContainer = styled.div`
-  width: 16rem;
+  width: 20rem;
   height: 19.375rem;
   background-color: ${(props) => props.theme.base.card};
   border-radius: 6px 36px;
@@ -63,7 +63,9 @@ export const ProductInformationContainer = styled.div`
 
 export const TagWrapping = styled.div`
   display: flex;
-  column-gap: 0.25rem;
+  column-gap: 0.5rem;
+  align-items: center;
+  text-align: center;
 `;
 
 export const Tag = styled.span`

@@ -10,47 +10,52 @@ export function Menu() {
   const { productsList } = useProducts();
 
   return (
-    <S.MenuContainer>
-      {productsList.map((product) => {
-        const cartProduct = cartProducts.find((item) => item.id === product.id);
-        const quantity = cartProduct ? cartProduct.quantity : 0;
+    <>
+      <S.MenuContainer>
+        {productsList.map((product) => {
+          const cartProduct = cartProducts.find(
+            (item) => item.id === product.id
+          );
+          const quantity = cartProduct ? cartProduct.quantity : 0;
+          const tagArray = product.tag.split(",").map((tag) => tag.trim());
 
-        return (
-          <S.ProductContainer key={product.id}>
-            <S.ProductImage src={product.image_path} />
-            <S.ProductInformationContainer>
-              <S.TagWrapping>
-                {product.tag?.map((tag, index) => {
-                  return <S.Tag key={index}>{tag}</S.Tag>;
-                })}
-              </S.TagWrapping>
-              <S.ProductName>{product.name}</S.ProductName>
-              <S.ProductDetails>{product.details}</S.ProductDetails>
-            </S.ProductInformationContainer>
+          return (
+            <S.ProductContainer key={product.id}>
+              <S.ProductImage src={product.image_path} />
+              <S.ProductInformationContainer>
+                <S.TagWrapping>
+                  {tagArray.map((tag, index) => {
+                    return <S.Tag key={index}>{tag}</S.Tag>;
+                  })}
+                </S.TagWrapping>
+                <S.ProductName>{product.name}</S.ProductName>
+                <S.ProductDetails>{product.details}</S.ProductDetails>
+              </S.ProductInformationContainer>
 
-            <S.PriceContainer>
-              <S.Price>
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(product.price)}
-              </S.Price>
+              <S.PriceContainer>
+                <S.Price>
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(product.price)}
+                </S.Price>
 
-              <S.ContainerAddToCart>
-                <S.SelectQuantityProducts>
-                  <S.DecreaseButton onClick={() => removeToCart(product)}>
-                    -
-                  </S.DecreaseButton>
-                  <span>{quantity}</span>
-                  <S.IncreaseButton onClick={() => addToCart(product)}>
-                    +
-                  </S.IncreaseButton>
-                </S.SelectQuantityProducts>
-              </S.ContainerAddToCart>
-            </S.PriceContainer>
-          </S.ProductContainer>
-        );
-      })}
+                <S.ContainerAddToCart>
+                  <S.SelectQuantityProducts>
+                    <S.DecreaseButton onClick={() => removeToCart(product)}>
+                      -
+                    </S.DecreaseButton>
+                    <span>{quantity}</span>
+                    <S.IncreaseButton onClick={() => addToCart(product)}>
+                      +
+                    </S.IncreaseButton>
+                  </S.SelectQuantityProducts>
+                </S.ContainerAddToCart>
+              </S.PriceContainer>
+            </S.ProductContainer>
+          );
+        })}
+      </S.MenuContainer>
 
       <NavLink to="/checkout">
         <S.GoToCartButton>
@@ -58,6 +63,6 @@ export function Menu() {
           Ir para o carrinho
         </S.GoToCartButton>
       </NavLink>
-    </S.MenuContainer>
+    </>
   );
 }

@@ -1,10 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  isBlurred: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   padding: 4rem 20rem;
   row-gap: 2rem;
+  transition: filter 0.3s ease;
+
+  ${({ isBlurred }) =>
+    isBlurred &&
+    css`
+      filter: blur(3px);
+    `}
 `;
 
 export const WrapperTitleAndAddNewProduct = styled.div`

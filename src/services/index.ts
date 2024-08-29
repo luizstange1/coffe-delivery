@@ -1,2 +1,2 @@
 export { cepAPI } from "./cep";
-export { getProductsAPI } from "./products";
+export { getProducts } from "./products";

@@ -18,6 +18,7 @@ export const defaultTheme = {
     default: "#8047F8",
     light: "#EBE5F9",
     dark: "#4B2995",
+    alternative: "#73479e",
   },
 
   yellow: {
