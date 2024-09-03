@@ -5,18 +5,18 @@ import { getProducts } from "../services";
 export function useProducts() {
   const [productsList, setProductsList] = useState<Product[]>([]);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const products = await getProducts();
-        setProductsList(products);
-      } catch (error) {
-        console.log(error);
-      }
+  async function fetchProducts() {
+    try {
+      const products = await getProducts();
+      setProductsList(products);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
+  useEffect(() => {
     fetchProducts();
   }, []);
 
-  return { productsList };
+  return { productsList, fetchProducts };
 }

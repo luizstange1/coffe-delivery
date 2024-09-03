@@ -13,9 +13,10 @@ interface ProductApi {
   image_path?: any;
 }
 
-interface ModalProps {
+type ModalProps = {
   setNewProductModalIsOpen: (props: boolean) => void;
-}
+  onProductAdded: () => void;
+};
 
 type CreateProductSchema = z.infer<typeof createProductSchema>;
 
@@ -27,12 +28,15 @@ const createProductSchema = z.object({
   image_path: z.any(),
 });
 
-export function AddProductModal({ setNewProductModalIsOpen }: ModalProps) {
+export function AddProductModal({
+  setNewProductModalIsOpen,
+  onProductAdded,
+}: ModalProps) {
   const { register, handleSubmit } = useForm<CreateProductSchema>({
     resolver: zodResolver(createProductSchema),
   });
 
-  function handleCreateProduct(data: ProductApi) {
+  async function handleCreateProduct(data: ProductApi) {
     const formData = new FormData();
 
     formData.append("name", data.name);
@@ -41,8 +45,13 @@ export function AddProductModal({ setNewProductModalIsOpen }: ModalProps) {
     formData.append("price", data.price.toFixed(2));
     formData.append("file", data.image_path[0]);
 
-    postProducts(formData);
-    handleCloseNewProductModal();
+    try {
+      await postProducts(formData);
+      onProductAdded();
+      handleCloseNewProductModal();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleCloseNewProductModal() {

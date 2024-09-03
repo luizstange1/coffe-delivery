@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export function Administration() {
   const [newProductModalIsOpen, setNewProductModalIsOpen] = useState(false);
-  const { productsList } = useProducts();
+  const { productsList, fetchProducts } = useProducts();
 
   function handleOpenNewProductModal() {
     setNewProductModalIsOpen(true);
@@ -17,7 +17,10 @@ export function Administration() {
       <Header />
 
       {newProductModalIsOpen && (
-        <AddProductModal setNewProductModalIsOpen={setNewProductModalIsOpen} />
+        <AddProductModal
+          setNewProductModalIsOpen={setNewProductModalIsOpen}
+          onProductAdded={fetchProducts}
+        />
       )}
 
       <S.Container isBlurred={newProductModalIsOpen}>
