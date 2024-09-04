@@ -77,6 +77,7 @@ export const CreateProductButton = styled.button`
   color: ${(props) => props.theme.white};
 
   transition: 0.3s ease-in-out;
+
   &:hover:not(:disabled) {
     filter: brightness(120%);
   }

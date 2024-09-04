@@ -32,7 +32,11 @@ export function AddProductModal({
   setNewProductModalIsOpen,
   onProductAdded,
 }: ModalProps) {
-  const { register, handleSubmit } = useForm<CreateProductSchema>({
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<CreateProductSchema>({
     resolver: zodResolver(createProductSchema),
   });
 
@@ -51,6 +55,7 @@ export function AddProductModal({
       handleCloseNewProductModal();
     } catch (error) {
       console.log(error);
+    } finally {
     }
   }
 
@@ -89,7 +94,7 @@ export function AddProductModal({
             placeholder="Escolha a imagem para seu produto"
             {...register("image_path")}
           />
-          <S.CreateProductButton type="submit">
+          <S.CreateProductButton type="submit" disabled={isSubmitting}>
             Criar Produto
           </S.CreateProductButton>
         </S.Form>
