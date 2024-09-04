@@ -3,6 +3,7 @@ import { Header, AddProductModal } from "./components";
 import { PlusCircle } from "@phosphor-icons/react";
 import { useProducts } from "../../hooks";
 import { useState } from "react";
+import { formatPrice } from "../../utils/formatPrice";
 
 export function Administration() {
   const [newProductModalIsOpen, setNewProductModalIsOpen] = useState(false);
@@ -56,12 +57,7 @@ export function Administration() {
                       <S.Tag key={index}>{tag}</S.Tag>
                     ))}
                   </S.Td>
-                  <S.Td>
-                    {Intl.NumberFormat("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    }).format(product.price)}
-                  </S.Td>
+                  <S.Td>{formatPrice(product.price)}</S.Td>
                   <S.Td>
                     <S.ImagePreview src={product.image_path} />
                   </S.Td>

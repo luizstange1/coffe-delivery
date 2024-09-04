@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../../../contexts";
 import { useProducts } from "../../../../hooks";
 import * as S from "./styles";
+import { formatPrice } from "../../../../utils/formatPrice";
 
 export function Menu() {
   const { cartProducts, addToCart, removeToCart } = useContext(CartContext);
@@ -33,12 +34,7 @@ export function Menu() {
               </S.ProductInformationContainer>
 
               <S.PriceContainer>
-                <S.Price>
-                  {Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(product.price)}
-                </S.Price>
+                <S.Price>{formatPrice(product.price)}</S.Price>
 
                 <S.ContainerAddToCart>
                   <S.SelectQuantityProducts>
