@@ -1,9 +1,11 @@
 import * as S from "./styles";
 import { Header, AddProductModal } from "./components";
-import { PlusCircle } from "@phosphor-icons/react";
+import { PlusCircle, Trash } from "@phosphor-icons/react";
 import { useProducts } from "../../hooks";
 import { useState } from "react";
 import { formatPrice } from "../../utils/formatPrice";
+import { Product } from "../../contexts/CartContext/types";
+import { deleteProduct } from "../../services";
 
 export function Administration() {
   const [newProductModalIsOpen, setNewProductModalIsOpen] = useState(false);
@@ -11,6 +13,11 @@ export function Administration() {
 
   function handleOpenNewProductModal() {
     setNewProductModalIsOpen(true);
+  }
+
+  async function handleDeleteProduct(product: Product) {
+    await deleteProduct(product.id);
+    fetchProducts();
   }
 
   return (
@@ -41,6 +48,7 @@ export function Administration() {
               <S.Th>Tag</S.Th>
               <S.Th>Preço</S.Th>
               <S.Th>Imagem</S.Th>
+              <S.Th>Ações</S.Th>
             </S.Tr>
           </S.THead>
 
@@ -60,6 +68,14 @@ export function Administration() {
                   <S.Td>{formatPrice(product.price)}</S.Td>
                   <S.Td>
                     <S.ImagePreview src={product.image_path} />
+                  </S.Td>
+
+                  <S.Td>
+                    <S.DeleteProductButton
+                      onClick={() => handleDeleteProduct(product)}
+                    >
+                      <Trash size={24} alt="Deletar produto" />
+                    </S.DeleteProductButton>
                   </S.Td>
                 </S.Tr>
               );

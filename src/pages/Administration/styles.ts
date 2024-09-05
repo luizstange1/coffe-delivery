@@ -83,3 +83,12 @@ export const ImagePreview = styled.img`
   width: 2rem;
   display: flex;
 `;
+
+export const DeleteProductButton = styled.button`
+  transition: 0.2s ease-in-out;
+  display: flex;
+
+  :hover {
+    color: ${(props) => props.theme.red};
+  }
+`;

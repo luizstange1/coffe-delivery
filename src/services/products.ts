@@ -11,12 +11,22 @@ export async function getProducts() {
   }
 }
 
-export async function postProducts(procuct: FormData) {
+export async function postProduct(procuct: FormData) {
   try {
     const response = await axios.post(
       "http://localhost:3333/products",
       procuct
     );
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function deleteProduct(id: string) {
+  try {
+    const response = await axios.delete(`http://localhost:3333/products/${id}`);
 
     return response.data;
   } catch (error) {

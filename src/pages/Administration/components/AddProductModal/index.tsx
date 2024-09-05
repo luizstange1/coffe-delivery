@@ -2,8 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "@phosphor-icons/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { postProducts } from "../../../../services/products";
+
 import * as S from "./styles";
+import { postProduct } from "../../../../services";
 
 interface ProductApi {
   name: string;
@@ -50,7 +51,7 @@ export function AddProductModal({
     formData.append("file", data.image_path[0]);
 
     try {
-      await postProducts(formData);
+      await postProduct(formData);
       onProductAdded();
       handleCloseNewProductModal();
     } catch (error) {
