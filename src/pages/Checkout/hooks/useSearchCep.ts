@@ -11,7 +11,6 @@ export function useSearchCep() {
     try {
       const response = await cepAPI.get<InfoCep>(`${cepInput}/json/`);
       setInfoCep(response.data);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
