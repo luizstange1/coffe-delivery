@@ -2,6 +2,7 @@ export const defaultTheme = {
   white: "#FFFFFF",
   background: "#FAFAFA",
   red: "#e04c4c",
+  black: "#000000",
 
   base: {
     card: "#F3F2F2",
