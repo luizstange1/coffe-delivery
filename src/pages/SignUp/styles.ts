@@ -38,6 +38,10 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
+
+  :last-child {
+    margin-bottom: 2.75rem;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -59,7 +63,7 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const Button = styled.a`
+export const Button = styled.button`
   background-color: ${(props) => props.theme.purple.default};
   color: ${(props) => props.theme.white};
   border-radius: 8px;
@@ -67,6 +71,11 @@ export const Button = styled.a`
   padding: 1rem;
   text-align: center;
   font-weight: bold;
+
+  &:disabled {
+    opacity: 75%;
+    cursor: not-allowed;
+  }
 `;
 
 export const RegisterDataInput = styled.input`
@@ -74,4 +83,9 @@ export const RegisterDataInput = styled.input`
   padding: 1rem;
   background-color: ${(props) => props.theme.base.input};
   border-radius: 8px;
+`;
+
+export const Warning = styled.span`
+  color: ${(props) => props.theme.red};
+  font-size: 0.875rem;
 `;

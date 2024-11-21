@@ -56,7 +56,6 @@ export function AddProductModal({
       handleCloseNewProductModal();
     } catch (error) {
       console.log(error);
-    } finally {
     }
   }
 
