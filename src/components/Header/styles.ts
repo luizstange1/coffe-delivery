@@ -11,6 +11,17 @@ export const ShoppingCart = styled.div`
   display: flex;
   column-gap: 0.75rem;
   align-items: center;
+
+  .login__button {
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.purple.default};
+    border-radius: 8px;
+    padding: 1rem;
+    height: 2.375rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const Location = styled.div`

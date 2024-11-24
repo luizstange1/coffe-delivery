@@ -30,6 +30,10 @@ export function Header() {
             {cartProducts.length > 0 && <span>{totalProducts}</span>}
           </S.CartLogo>
         </NavLink>
+
+        <NavLink to="/login" className="login__button">
+          Entrar
+        </NavLink>
       </S.ShoppingCart>
     </S.HeaderContainer>
   );

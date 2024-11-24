@@ -1,10 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { X } from "@phosphor-icons/react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import * as S from "./styles";
 import { postProduct } from "../../../../services";
+import { createProductSchema, CreateProductSchema } from "./schema";
 
 interface ProductApi {
   name: string;
@@ -18,16 +18,6 @@ type ModalProps = {
   setNewProductModalIsOpen: (props: boolean) => void;
   onProductAdded: () => void;
 };
-
-type CreateProductSchema = z.infer<typeof createProductSchema>;
-
-const createProductSchema = z.object({
-  name: z.string().min(4),
-  details: z.string().min(4),
-  tag: z.string().min(4),
-  price: z.coerce.number().min(1),
-  image_path: z.any(),
-});
 
 export function AddProductModal({
   setNewProductModalIsOpen,

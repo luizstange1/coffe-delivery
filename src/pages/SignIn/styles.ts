@@ -37,7 +37,7 @@ export const LoginWrapper = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  padding-bottom: 1.5rem;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -59,7 +59,7 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const Button = styled.a`
+export const Button = styled.button`
   background-color: ${(props) => props.theme.purple.default};
   color: ${(props) => props.theme.white};
   border-radius: 8px;
@@ -67,6 +67,7 @@ export const Button = styled.a`
   padding: 1rem;
   text-align: center;
   font-weight: bold;
+  margin-top: 1.5rem;
 `;
 
 export const LoginDataInput = styled.input`
@@ -74,4 +75,11 @@ export const LoginDataInput = styled.input`
   padding: 1rem;
   background-color: ${(props) => props.theme.base.input};
   border-radius: 8px;
+`;
+
+export const WarningMessage = styled.span`
+  color: ${(props) => props.theme.red};
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
 `;

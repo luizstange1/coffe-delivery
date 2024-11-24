@@ -37,11 +37,7 @@ export const RegisterWrapper = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 1.5rem;
-
-  :last-child {
-    margin-bottom: 2.75rem;
-  }
+  padding-bottom: 1.5rem;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -85,7 +81,9 @@ export const RegisterDataInput = styled.input`
   border-radius: 8px;
 `;
 
-export const Warning = styled.span`
+export const WarningMessage = styled.span`
   color: ${(props) => props.theme.red};
   font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
 `;

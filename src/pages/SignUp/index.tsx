@@ -2,33 +2,19 @@ import * as S from "./styles";
 import backgroundImg from "../../assets/background-coffe-img.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createUser } from "../../services";
-
-const createUserSchema = z.object({
-  name: z.string().min(4),
-  surname: z.string().min(4),
-  email: z.string().email().min(8),
-  password: z.string().min(6),
-  confirmPassword: z.string().min(6),
-});
-
-type CreateUserSchema = z.infer<typeof createUserSchema>;
+import { createUserSchema, CreateUserSchema } from "./schema";
 
 export function SignUp() {
   const navigate = useNavigate();
-  const { register, handleSubmit, watch } = useForm<CreateUserSchema>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CreateUserSchema>({
     resolver: zodResolver(createUserSchema),
   });
-
-  const formValues = watch();
-  const isFormValid = Object.values(formValues).every(
-    (value) =>
-      value &&
-      value.trim() !== "" &&
-      formValues.password === formValues.confirmPassword
-  );
 
   async function handleCreateUser(userData: CreateUserSchema) {
     try {
@@ -58,32 +44,62 @@ export function SignUp() {
               type="text"
               {...register("name")}
             />
+
+            {errors.name && (
+              <S.WarningMessage>{errors.name.message}</S.WarningMessage>
+            )}
+          </S.InputWrapper>
+          <S.InputWrapper>
             <S.RegisterDataInput
               placeholder="Digite seu sobrenome"
               type="text"
               {...register("surname")}
             />
+
+            {errors.surname && (
+              <S.WarningMessage>{errors.surname?.message}</S.WarningMessage>
+            )}
+          </S.InputWrapper>
+
+          <S.InputWrapper>
             <S.RegisterDataInput
               placeholder="Digite seu email"
               type="email"
               {...register("email")}
             />
+            {errors.email && (
+              <S.WarningMessage>{errors.email?.message}</S.WarningMessage>
+            )}
+          </S.InputWrapper>
+
+          <S.InputWrapper>
             <S.RegisterDataInput
               placeholder="Digite sua senha"
               type="password"
               {...register("password")}
             />
+
+            {errors.password && (
+              <S.WarningMessage>{errors.password?.message}</S.WarningMessage>
+            )}
+          </S.InputWrapper>
+
+          <S.InputWrapper>
             <S.RegisterDataInput
               placeholder="Confirme sua senha"
               type="password"
               {...register("confirmPassword")}
             />
+
+            {errors.confirmPassword && (
+              <S.WarningMessage>
+                {errors.confirmPassword.message}
+              </S.WarningMessage>
+            )}
           </S.InputWrapper>
 
           <S.ButtonWrapper>
-            <S.Button type="submit" disabled={!isFormValid}>
-              Cadastrar
-            </S.Button>
+            <S.Button type="submit">Cadastrar</S.Button>
             <span>
               Já tem uma conta criada?
               <NavLink to="/login">Faça login agora</NavLink>
