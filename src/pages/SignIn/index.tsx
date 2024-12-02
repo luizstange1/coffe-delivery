@@ -1,12 +1,16 @@
 import * as S from "./styles";
 import backgroundImg from "../../assets/background-coffe-img.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { userLogin } from "../../services";
 import { loginDataSchema, LoginDataSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 export function SignIn() {
+  const [error, setError] = useState(undefined);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -18,8 +22,10 @@ export function SignIn() {
   async function handleUserLogin(userLoginData: LoginDataSchema) {
     try {
       await userLogin(userLoginData);
-    } catch (error) {
-      console.log(error);
+      setError(undefined);
+      navigate("/");
+    } catch (error: any) {
+      setError(error.message);
     }
   }
 
@@ -47,7 +53,6 @@ export function SignIn() {
             )}
           </S.InputWrapper>
           <S.InputWrapper>
-            {" "}
             <S.LoginDataInput
               placeholder="Digite sua senha"
               type="password"
@@ -56,6 +61,8 @@ export function SignIn() {
             {errors.password && (
               <S.WarningMessage>{errors.password.message}</S.WarningMessage>
             )}
+
+            {error && <S.WarningMessage>{error}</S.WarningMessage>}
           </S.InputWrapper>
 
           <S.ButtonWrapper>
