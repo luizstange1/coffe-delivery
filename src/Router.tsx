@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { CartContext } from "./contexts";
+import { AdminProtectedRoute, DefaultLayout } from "./layouts";
 import {
   Administration,
   Checkout,
@@ -7,9 +10,6 @@ import {
   SignUp,
   Success,
 } from "./pages";
-import { DefaultLayout } from "./layouts";
-import { useContext } from "react";
-import { CartContext } from "./contexts";
 
 interface ProtectedRouteProps {
   component: React.ComponentType;
@@ -34,7 +34,14 @@ export function Router() {
         />
       </Route>
 
-      <Route path="/admin" element={<Administration />} />
+      <Route
+        path="/admin"
+        element={
+          <AdminProtectedRoute>
+            <Administration />
+          </AdminProtectedRoute>
+        }
+      />
       <Route path="/login" element={<SignIn />} />
       <Route path="/usuario/cadastro" element={<SignUp />} />
     </Routes>

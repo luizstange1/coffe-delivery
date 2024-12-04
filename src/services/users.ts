@@ -49,10 +49,24 @@ export async function getUserData(id: string) {
 
 export async function createUser(userData: newUserDataProps) {
   try {
-    const response = axios.post(
+    const response = await axios.post(
       "http://localhost:3333/user/register",
       userData
     );
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function checkAdminPrivateRouteAcess(id: string, token: string) {
+  try {
+    const response = await axios.get(`http://localhost:3333/admin/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     return response;
   } catch (error) {
