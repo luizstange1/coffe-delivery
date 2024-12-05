@@ -1,16 +1,25 @@
 import * as S from "./styles";
 import logoCoffeDelivery from "../../assets/coffe-delivery-logo.svg";
-import { MapPin, ShoppingCart } from "@phosphor-icons/react";
+import { MapPin, ShoppingCart, UserList, SignOut } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts";
+import { useAdminCheck } from "../../hooks";
 
 export function Header() {
   const { cartProducts } = useContext(CartContext);
+  const { isAuthorized } = useAdminCheck();
   const totalProducts = cartProducts.reduce(
     (total, product) => total + product.quantity,
     0
   );
+  const loginVerification = localStorage.getItem("userId");
+
+  function handleLogout() {
+    localStorage.removeItem("userId"),
+      localStorage.removeItem("token"),
+      location.reload();
+  }
 
   return (
     <S.HeaderContainer>
@@ -31,9 +40,23 @@ export function Header() {
           </S.CartLogo>
         </NavLink>
 
-        <NavLink to="/login" className="login__button">
-          Entrar
-        </NavLink>
+        {isAuthorized && (
+          <NavLink to="/admin" className="admin__button">
+            <UserList size={22} />
+            Administrador
+          </NavLink>
+        )}
+
+        {!loginVerification ? (
+          <NavLink to="/login" className="login__button">
+            Entrar
+          </NavLink>
+        ) : (
+          <S.LogoutButton onClick={handleLogout}>
+            <SignOut size={22} />
+            Sair
+          </S.LogoutButton>
+        )}
       </S.ShoppingCart>
     </S.HeaderContainer>
   );

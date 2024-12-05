@@ -22,6 +22,18 @@ export const ShoppingCart = styled.div`
     display: flex;
     align-items: center;
   }
+
+  .admin__button {
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.purple.default};
+    border-radius: 8px;
+    padding: 1rem;
+    height: 2.375rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
 `;
 
 export const Location = styled.div`
@@ -67,4 +79,16 @@ export const CartLogo = styled.a`
     align-items: center;
     justify-content: center;
   }
+`;
+
+export const LogoutButton = styled.button`
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.purple.default};
+  border-radius: 8px;
+  padding: 1rem;
+  height: 2.375rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
 `;
