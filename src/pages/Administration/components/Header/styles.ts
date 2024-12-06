@@ -7,4 +7,6 @@ export const Header = styled.header`
   padding: 2rem 10rem;
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  cursor: pointer;
+`;

@@ -4,15 +4,15 @@ import { MapPin, ShoppingCart, UserList, SignOut } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts";
-import { useAdminCheck } from "../../hooks";
+import { userUserData } from "../../hooks";
 
 export function Header() {
   const { cartProducts } = useContext(CartContext);
-  const { isAuthorized } = useAdminCheck();
   const totalProducts = cartProducts.reduce(
     (total, product) => total + product.quantity,
     0
   );
+  const { userIsAdministrator } = userUserData();
   const loginVerification = localStorage.getItem("userId");
 
   function handleLogout() {
@@ -40,7 +40,7 @@ export function Header() {
           </S.CartLogo>
         </NavLink>
 
-        {isAuthorized && (
+        {userIsAdministrator && (
           <NavLink to="/admin" className="admin__button">
             <UserList size={22} />
             Administrador
