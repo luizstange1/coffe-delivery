@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUserData } from "../services/users";
 
-export function userUserData() {
+export function useUserData() {
   const [userIsAdministrator, setUserIsAdministrator] = useState(false);
 
   useEffect(() => {

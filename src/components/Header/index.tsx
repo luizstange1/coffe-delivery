@@ -4,7 +4,7 @@ import { MapPin, ShoppingCart, UserList, SignOut } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts";
-import { userUserData } from "../../hooks";
+import { useUserData } from "../../hooks";
 
 export function Header() {
   const { cartProducts } = useContext(CartContext);
@@ -12,7 +12,7 @@ export function Header() {
     (total, product) => total + product.quantity,
     0
   );
-  const { userIsAdministrator } = userUserData();
+  const { userIsAdministrator } = useUserData();
   const loginVerification = localStorage.getItem("userId");
 
   function handleLogout() {
